@@ -1,3 +1,7 @@
 deliverables/
 sources/
 temp/
+
+# Allow deliverables and sources within examples directory
+!examples/**/deliverables/
+!examples/**/sources/
