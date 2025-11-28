@@ -44,13 +44,13 @@ Fill in each file with your project details:
 
 Open `.github/prompts/GenerateProposals.prompt.md` in Copilot Chat and follow the instructions. The AI will ask for your source files and create multiple architecture proposals.
 
-### 3. Refine Your Chosen Approach
+### 3. Critique Your Options
 
-Select a promising proposal and open `.github/prompts/RefineProposal.prompt.md`. The AI will expand it into a detailed architecture spec with component designs, API definitions, and implementation plans.
+Open `.github/prompts/CritiqueProposals.prompt.md` to get expert-level analysis of risks, failure modes, and bottlenecks for your high-level proposals. Use this feedback to select the most promising approach.
 
-### 4. Critique Before Building
+### 4. Refine Your Chosen Approach
 
-Open `.github/prompts/CritiqueProposals.prompt.md` to get expert-level analysis of risks, failure modes, and bottlenecks. Use this feedback to iterate on your design.
+Select the best proposal based on critique feedback and open `.github/prompts/RefineProposal.prompt.md`. The AI will expand it into a detailed architecture spec with component designs, API definitions, and implementation plans.
 
 ### 5. Keep Things Updated
 
@@ -59,15 +59,15 @@ As requirements change, use `.github/prompts/IngestUpdates.prompt.md` to automat
 ## Typical Workflow
 
 ```
-Define Context → Generate Options → Select & Refine → Critique → Iterate
-     ↓               ↓                   ↓              ↓          ↓
-  sources/      deliverables/      spec details    risks found   update
+Define Context → Generate Options → Critique → Select & Refine → Iterate
+     ↓               ↓                 ↓             ↓              ↓
+  sources/      deliverables/     risks found   spec details     update
 ```
 
 1. Fill in your `sources/` files with requirements and constraints
 2. Generate 2-3 high-level proposals to explore different approaches
-3. Refine your preferred proposal into detailed specs
-4. Run critique to identify issues early
+3. Run critique to identify issues and compare trade-offs across proposals
+4. Refine your best proposal into detailed specs based on critique insights
 5. Update documents as you learn more (IngestUpdates)
 
 **Key Points:**
