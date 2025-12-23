@@ -1,6 +1,6 @@
 # Architecture Design Workbench
 
-A structured approach to generating and evaluating system architecture proposals using AI-assisted prompts.
+A spec-driven, repeatable approach to generating and evaluating system architecture proposals using AI-assisted prompts.
 
 ## What This Does
 
