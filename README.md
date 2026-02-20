@@ -85,6 +85,31 @@ All generated proposals and specs go into `deliverables/[your-project]/`:
 
 Check `examples/` for complete reference implementations showing the full workflow.
 
+## Linking Sources and Deliverables from a Project Repo
+
+The `sources/` and `deliverables/` directories can be linked to subdirectories in your project's Git repository using a submodule + sparse checkout + directory junctions. This lets you edit files flat at `sources/` and `deliverables/` and push changes back to the project repo.
+
+```powershell
+# 1. Add your project repo as a submodule
+git submodule add -b <branch-name> <project-repo-url> .sources-repo
+
+# 2. Sparse checkout (only the subdirectories you need)
+cd .sources-repo
+git sparse-checkout init --cone
+git sparse-checkout set path/to/sources path/to/deliverables
+cd ..
+
+# 3. Create junctions so files appear at sources/ and deliverables/
+New-Item -ItemType Junction -Path sources -Target "$PWD\.sources-repo\path\to\sources"
+New-Item -ItemType Junction -Path deliverables -Target "$PWD\.sources-repo\path\to\deliverables"
+
+# 4. Make changes and push back to project repo
+cd .sources-repo && git add -A && git commit -m "msg" && git push
+
+# 5. Pull updates if needed
+cd .sources-repo && git pull
+```
+
 ---
 
 **Remember**: This workbench is for design work only. All outputs are markdown documentation, not code.
