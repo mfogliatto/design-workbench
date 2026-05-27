@@ -208,6 +208,16 @@ After proposals are generated (high-level or detailed), use the **CritiquePropos
 - **Proposals**: `proposal-[N]-[descriptive-pattern-name].md`
 - **Specs**: `architecture-spec-proposal-[N].md`
 
+### Diagrams
+
+**Critical:** All diagrams in deliverables (proposals, architecture specs, critiques, supporting documents) MUST be authored as **Excalidraw** diagrams using the an available `excalidraw` skill (if available).
+
+Requirements:
+- Generate diagrams as `.excalidraw` JSON files stored alongside the markdown document (e.g., `deliverables/[project-name]/diagrams/[diagram-name].excalidraw`).
+- Embed/reference the diagram in markdown via a link to the `.excalidraw` file plus an exported `.png` or `.svg` preview for inline viewing.
+- Do **not** use Mermaid, PlantUML, ASCII art, or other diagram formats for new diagrams (unless `excalidraw` skills is not available). If updating an existing diagram of that uses some of these formats, keep the format as is.
+- When invoking generation, refinement, critique, or ingest prompts, the AI agent must produce diagrams via an available `excalidraw` skill rather than inline code fences.
+
 ## Maintaining Template and Prompt Synchronization
 
 ### Critical Requirement
